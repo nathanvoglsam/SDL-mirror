@@ -8,6 +8,12 @@ project(SDL2 C CXX)
 if(WINDOWS_STORE)
   enable_language(CXX)
   cmake_minimum_required(VERSION 3.11)
+  link_libraries(
+          -nodefaultlib:vccorlib$<$<CONFIG:Debug>:d>
+          -nodefaultlib:msvcrt$<$<CONFIG:Debug>:d>
+          vccorlib$<$<CONFIG:Debug>:d>.lib
+          msvcrt$<$<CONFIG:Debug>:d>.lib
+  )
   add_definitions(-DSDL_BUILDING_WINRT=1)
   add_definitions(-DWINAPI_FAMILY=2)
 endif()
