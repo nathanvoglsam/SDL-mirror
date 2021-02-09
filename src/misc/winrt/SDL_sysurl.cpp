@@ -27,7 +27,7 @@
 int
 SDL_SYS_OpenURL(const char *url)
 {
-    WCHAR *wurl = (WCHAR*) WIN_UTF8ToString(url);
+    WCHAR *wurl = WIN_UTF8ToString(url);
     if (!wurl) {
         return SDL_OutOfMemory();
     }

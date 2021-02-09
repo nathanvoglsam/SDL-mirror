@@ -122,7 +122,7 @@ void
 SDL_WasapiDeviceEventHandler::OnDeviceAdded(DeviceWatcher^ sender, DeviceInformation^ info)
 {
     SDL_assert(sender == this->watcher);
-    char *utf8dev = WIN_StringToUTF8((char*)info->Name->Data());
+    char *utf8dev = WIN_StringToUTF8(info->Name->Data());
     if (utf8dev) {
         WASAPI_AddDevice(this->iscapture, utf8dev, info->Id->Data());
         SDL_free(utf8dev);
