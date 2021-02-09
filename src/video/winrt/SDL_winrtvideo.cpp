@@ -260,7 +260,7 @@ WINRT_AddDisplaysForOutput (_THIS, IDXGIAdapter1 * dxgiAdapter1, int outputIndex
         WIN_SetErrorFromHRESULT(__FUNCTION__ ", IDXGIOutput::FindClosestMatchingMode failed", hr);
         goto done;
     } else {
-        displayName = WIN_StringToUTF8(dxgiOutputDesc.DeviceName);
+        displayName = WIN_StringToUTF8((char*)dxgiOutputDesc.DeviceName);
         display.name = displayName;
         WINRT_DXGIModeToSDLDisplayMode(&closestMatch, &display.desktop_mode);
         display.current_mode = display.desktop_mode;
